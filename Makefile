@@ -92,3 +92,8 @@ ps: ## Get the local docker environment status
 .PHONY: pull
 pull: ## Fetch docker images
 	docker compose $(dc_conf) $(project_name) pull
+
+.PHONY: laravel-install
+laravel-install: ## Install Laravel
+	docker compose $(dc_conf) $(project_name) exec app composer create-project --prefer-dist laravel/laravel . || :
+	docker compose $(dc_conf) $(project_name) exec app composer require --dev barryvdh/laravel-ide-helper laravel/telescope
