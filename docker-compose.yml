@@ -1,8 +1,8 @@
 services:
   # Service PHP-FPM
   app:
+    platform: linux/x86_64
     build: ./docker/php
-    container_name: php-fpm-app
     restart: unless-stopped
     volumes:
       - ./app:/app
@@ -14,8 +14,8 @@ services:
 
   # Service Nginx
   nginx:
+    platform: linux/x86_64
     image: nginx:latest
-    container_name: nginx
     restart: unless-stopped
     volumes:
       - ./app:/app
@@ -30,8 +30,8 @@ services:
 
   # Service MariaDB
   mariadb:
+    platform: linux/x86_64
     image: mariadb:latest
-    container_name: mariadb
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -44,8 +44,8 @@ services:
       - ${MYSQL_PORT}:3306
 
   mariadb_testing:
+    platform: linux/x86_64
     image: mariadb:latest
-    container_name: mariadb_testing
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -59,8 +59,8 @@ services:
 
   # Service Redis
   redis:
+    platform: linux/x86_64
     image: redis:alpine
-    container_name: redis
     restart: unless-stopped
     networks:
       - app-network
