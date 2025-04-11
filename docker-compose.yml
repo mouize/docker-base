@@ -43,6 +43,20 @@ services:
     ports:
       - ${MYSQL_PORT}:3306
 
+  mariadb_testing:
+    image: mariadb:latest
+    container_name: mariadb_testing
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${APP_SLUG_NAME}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - app-network
+    ports:
+      - ${MYSQL_PORT_TESTING}:3306
+
   # Service Redis
   redis:
     image: redis:alpine
