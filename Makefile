@@ -96,4 +96,4 @@ pull: ## Fetch docker images
 .PHONY: laravel-install
 laravel-install: ## Install Laravel
 	docker compose $(dc_conf) $(project_name) exec app composer create-project --prefer-dist laravel/laravel . || :
-	docker compose $(dc_conf) $(project_name) exec app composer require --dev barryvdh/laravel-ide-helper laravel/telescope
+	docker compose $(dc_conf) $(project_name) exec app composer require --dev barryvdh/laravel-ide-helper laravel/telescope phpstan/phpstan larastan/larastan phpstan/phpstan-mockery
