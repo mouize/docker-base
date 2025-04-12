@@ -7,7 +7,9 @@ services:
     volumes:
       - ./app:/app
     networks:
-      - app-network
+      app-network:
+        aliases:
+          - php-fpm-app
     depends_on:
       - mariadb
       - redis
