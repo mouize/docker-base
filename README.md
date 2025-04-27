@@ -13,9 +13,9 @@ Before getting started, ensure that you have the following installed on your mac
 
 Clone this repository to your local machine:
     
-    ```shell
-    git clone git@github.com:mouize/docker-base.git
-    ```
+```shell
+git clone git@github.com:mouize/docker-base.git
+```
 
 ### Set up environment variables
 
@@ -25,8 +25,15 @@ Create a `.env` file in the root of the project directory and copy the contents 
 
 Build the Docker containers by running the following command:
 
-    ```shell
-    make up
-    ```
+```shell
+make up
+```
 
 After running the command, you should see the Docker containers being built and started. You can access to your application on the port you specified in the `.env` file.
+
+### Makefile
+
+You can take a look on the Makefile, some options are available like :
+```shell
+make laravel-install #Install laravel with some dev tools like telescope and phpstan
+```
